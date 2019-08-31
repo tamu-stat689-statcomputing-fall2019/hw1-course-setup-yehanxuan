@@ -1,6 +1,6 @@
 # Assignment 1 - Getting started
 
-Student: *Last name*, *First name*
+Student: *Ye*, *Hanxuan*
 
 Potentially helpful resources:
 
