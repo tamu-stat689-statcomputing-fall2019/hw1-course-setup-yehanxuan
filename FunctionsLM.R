@@ -5,7 +5,8 @@
 # seed  - starting seed value
 generateY <- function(X, beta, sigma, seed = 5832652){
   #[ToDo] Set seed and generate Y following linear model
-  
+  dim_row = dim(X)[1] # row dimension of design matrix 
+  Y = X %*% beta + sigma * rnorm(dim_row)
   # Return Y
   return(Y)
 }
@@ -15,7 +16,7 @@ generateY <- function(X, beta, sigma, seed = 5832652){
 # Y -response
 calculateBeta <- function(X, Y){
   # Calculate beta_LS
-  
+  beta_LS = solve( t(X) %*% X, t(X) %*% Y )
   # Return beta
   return(beta_LS)
 }
@@ -23,6 +24,7 @@ calculateBeta <- function(X, Y){
 # Calculate MSE
 calculateMSE <- function(beta, beta_LS){
   
+  MSE = t(beta-beta_LS) %*% (beta - beta_LS)
   # Return MSE - error ||beta - beta_LS||_2^2
   return(MSE)
 }
